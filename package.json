@@ -1,0 +1,27 @@
+{
+  "name": "ttrpg-map-backend",
+  "version": "1.0.0",
+  "description": "Lightweight TTRPG Battle Map with real-time synchronization",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "server": "node server/index.js",
+    "watch": "nodemon server/index.js"
+  },
+  "keywords": [
+    "ttrpg",
+    "battle-map",
+    "websocket",
+    "real-time"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

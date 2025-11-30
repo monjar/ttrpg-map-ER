@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lightweight TTRPG Battle Map (MVP)</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/shared/constants.js"></script>
+</head>
+<body>
+  <!-- Session Modal -->
+  <div id="session-modal" class="modal">
+    <div class="modal-content">
+      <h2>Join or Create a Game</h2>
+      
+      <div class="modal-section">
+        <h3>Create New Session (as Game Master)</h3>
+        <input type="text" id="create-session-id" placeholder="Session ID (e.g., game123)" />
+        <input type="text" id="gm-name" placeholder="Your name" value="Game Master" />
+        <button id="create-session-btn">Create Session</button>
+      </div>
+
+      <div class="modal-divider">OR</div>
+
+      <div class="modal-section">
+        <h3>Join Existing Session (as Player)</h3>
+        <input type="text" id="join-session-id" placeholder="Session ID" />
+        <input type="text" id="player-name" placeholder="Your name" />
+        <button id="join-session-btn">Join Session</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="sidebar">
+    <h1>Battle Map MVP</h1>
+    
+    <div id="connection-status" class="status-badge">○ Disconnected</div>
+    <div id="gm-badge" class="gm-badge" style="display: none;">⚔️ Game Master</div>
+    
+    <div id="session-info" class="info-box"></div>
+  <button id="exit-session-btn" class="danger" disabled>Exit Session</button>
+
+    <h2>Players</h2>
+    <div id="player-list" class="player-list"></div>
+
+    <h2>Tokens</h2>
+    <button data-add-token="pc">Add PC</button>
+    <button data-add-token="monster">Add Monster</button>
+    <button data-add-token="npc">Add NPC</button>
+
+    <h2>Props</h2>
+    <button data-add-token="prop-tree">Add Tree</button>
+    <button data-add-token="prop-rock">Add Rock</button>
+    <button data-add-token="building">Add Building</button>
+
+    <h2>Selection</h2>
+    <button id="delete-selected">Delete Selected</button>
+
+    <div id="hint">
+      <strong>How to use:</strong><br/>
+      • Click buttons to add tokens/props<br/>
+      • Drag tokens to move them (they snap to grid)<br/>
+      • Click a token to select it<br/>
+      • Press <kbd>Delete</kbd> or use "Delete Selected"<br/>
+    </div>
+  </div>
+
+  <div id="map-wrapper">
+    <div id="map-container">
+      <div id="grid"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
